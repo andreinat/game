@@ -1,0 +1,1 @@
+This is a game based on the book "Python Crash Course" using pygame
