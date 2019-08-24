@@ -22,6 +22,7 @@ class AlienInvasion:
         while True:
             # Get events
             self.get_events()
+            self.rocket.update()
             self.update_screen()
 
             
@@ -30,7 +31,14 @@ class AlienInvasion:
         # Watch for keyboard and mouse events.
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                sys.exit()        
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    # Move to the right.
+                    self.rocket.moving_right = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.rocket.moving_right = False
     
     def update_screen(self):
         # Redraw the screen during each pass through the loop.
